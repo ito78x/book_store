@@ -10,9 +10,9 @@ def index(request):
     "books": books
   })
 
-def book_detail(request, pk):
+def book_detail(request, slug):
     try:
-      book = Book.objects.get(pk=pk)
+      book = Book.objects.get(slug=slug)
     except:
       raise Http404()    
     return render(request, "book_outlet/book_detail.html", {
